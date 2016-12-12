@@ -35,4 +35,22 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1209488922450101',
+        'client_secret' => '432280b551f8af6de95bd9dcfa236bd3',
+        'redirect' => 'http://testvocacional.tk/auth/facebook/callback',
+    ],
+
+    'twitter' => [
+        'client_id' => 'tERFsTNgpBC0ai98qbG7JvFZU',
+        'client_secret' => 'EWh6hTN5rdNesROuT6MlWUtkmD2HUfupgka3vBRA2Z3tBz33W9',
+        'redirect' => 'http://testvocacional.tk/auth/twitter/callback',
+    ],
+
+    'google' => [
+        'client_id' => '476932156832-rrkevhc4imflm8ba6m4rmb6pb9umdki7.apps.googleusercontent.com',
+        'client_secret' => 'k1L0Z0fz9KOpzWNq-OtEdq7F',
+        'redirect' => 'http://testvocacional.tk/auth/google/callback',
+    ],
+
 ];

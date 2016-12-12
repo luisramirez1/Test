@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="head-top">
 				<div class="col-sm-2 number">
-					<span><i class="glyphicon glyphicon-book"></i> Tec de Culiacan</span>
+					<span><i></i> Inteligencia Artificial</span>
 				</div>
 		 <div class="col-sm-8 h_menu4">
 				<ul class="memenu skyblue">
