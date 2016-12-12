@@ -13,7 +13,7 @@
 	          			<img src="{{asset("images/1.png")}}" alt="">
 	       			 </li>
 			 		 <li>
-	          			<img src="{{asset("images/2.png")}}" alt="">   
+	          			<img src="{{asset("images/2.PNG")}}" alt="">   
 	       			 </li>
 					 <li>
 	          			<img src="{{asset("images/3.png")}}" alt="">
