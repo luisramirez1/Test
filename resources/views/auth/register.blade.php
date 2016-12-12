@@ -76,14 +76,12 @@
                             </div>
                      </div>
                      <div class="clearfix"> </div>
-                </form>
                 
                 <div class="register-but">
-                   <form>
-                       <input type="submit" value="Registrar">
-                       <div class="clearfix"> </div>
-                   </form>
+                    <input type="submit" value="Registrar" id="botonS">
+                    <div class="clearfix"> </div>
                 </div>
+            </form>
            </div>
 </div>
 

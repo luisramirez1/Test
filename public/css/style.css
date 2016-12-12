@@ -739,6 +739,19 @@ a.forgot {
 	border:none;
 	outline:none;
 }
+#botonS {
+	background:#52D0C4;
+	color: #FFF;
+	font-size:1em;
+	padding: 0.4em 1em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	border:none;
+	outline:none;
+}
 .register-but input[type="submit"]:hover {
 	background:#000;
 }
