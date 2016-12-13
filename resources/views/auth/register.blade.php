@@ -42,7 +42,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <span>Celular</span>
                             <div>
-                                <input id="name" type="tel" name="tel" value="{{ old('name') }}" onkeypress="return justNumbers(event);" pattern="[0-9]{10}">
+                                <input id="name" type="tel" name="tel" value="{{ old('tel') }}" onkeypress="return justNumbers(event);" pattern="[0-9]{10}">
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
