@@ -31,5 +31,7 @@ Route::group(['middleware' => ['admin']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+	
+	Route::get('/test', 'TestController@test');
 
 });
