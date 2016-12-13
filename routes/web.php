@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('/areas/{id}', 'TestController@areas');
 
 Route::get('/home', 'HomeController@index');
 
@@ -33,5 +34,6 @@ Route::group(['middleware' => ['admin']], function () {
 Route::group(['middleware' => ['auth']], function () {
 	
 	Route::get('/test', 'TestController@test');
-
+	Route::get('/resultados/{idU}/{idP}', 'TestController@resultados');
+	Route::post('/enviarTest', 'TestController@enviarTest');
 });

@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 		 <div class="col-sm-8 h_menu4">
 				<ul class="memenu skyblue">
-					  <li class=" grid"><a  href="index.html">Inicio</a></li>	
+					  <li class=" grid"><a  href="{{ url('/') }}">Inicio</a></li>	
 				      <li><a  href="#">Areas</a>
 				      	<div class="mepanel">
 						<div class="row">
@@ -91,18 +91,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<div class="h_nav">
 									<h4>Areas</h4>
 									<ul>
-										<li><a href="products.html">Arte y Creatividad</a></li>
-										<li><a href="products.html">Ciencias Sociales</a></li>
-										<li><a href="products.html">Económica, Administrativa y Financiera</a></li>
-										<li><a href="products.html">Ciencia y Tecnología</a></li>
-										<li><a href="products.html">"Ciencias Ecológicas, Biológicas y de Salud"</a></li>
+										<li><a href="{{ url('/areas/1') }}">Arte y Creatividad</a></li>
+										<li><a href="{{ url('/areas/2') }}">Ciencias Sociales</a></li>
+										<li><a href="{{ url('/areas/3') }}">Económica, Administrativa y Financiera</a></li>
+										<li><a href="{{ url('/areas/4') }}">Ciencia y Tecnología</a></li>
+										<li><a href="{{ url('/areas/5') }}">"Ciencias Ecológicas, Biológicas y de Salud"</a></li>
 									</ul>	
 								</div>							
 							</div>
 						  </div>
 						</div>
 					</li>
-				<li><a  href="{{asset("/")}}">Realizar Test</a></li>				
+				@if (Auth::guest())
+					<li><a onclick="alertaL()" style="cursor:pointer; cursor: hand;">Realizar Test</a></li>
+				@else
+					<li><a href="{{ url('/test') }}">Realizar Test</a></li>
+				@endif
+				@if (Auth::guest())
+				@else
+					<li><a  href="#">Resultados</a>
+				      	<div class="mepanel">
+						<div class="row">
+							<div class="col8">
+								<div class="h_nav">
+									<h4>Resultados</h4>
+									<ul>
+										@if(Auth::user()->npregunta == 0)
+											<li><a style="text-decoration: none;">Por el momento no has realizado el TEST VOCACIONAL. No esperes mas.</a></li>
+				                        @else
+					                        @for ($i = 1; $i < Auth::user()->npregunta+1; $i++)
+												<li><a href="{{url('/resultados')}}/{{Auth::user()->id}}/{{$i}}">Test #: {{$i}}</a></li>				            
+					                        @endfor
+				                        @endif   
+										
+									</ul>	
+								</div>							
+							</div>
+						  </div>
+						</div>
+					</li>
+				@endif			
 			  </ul>
 			</div>
 		<div class="col-sm-2 search">		
@@ -122,6 +150,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<p>	Test</p>
 					</div>				
 				</div>
+				<script>
+                        function alertaL() {
+                            $("#alertaL").fadeTo(8000, 1000).slideUp(1000, function(){
+                            $("#alertaL").slideUp(1000);
+                            });
+                        }
+
+                </script>
 				 <script>
 						$(document).ready(function() {
 						$('.popup-with-zoom-anim').magnificPopup({
@@ -142,6 +178,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div> <hr>
+					<div class="alert alert-danger alert-dismissible" id="alertaL" role="alert" style="width: 60%; margin: 0 auto; display: none;">
+                        <strong>Espera!</strong> Necesitas <a href="{{url('login')}}">INICIAR SESION</a> para realizar el TEST VOCACIONAL.
+                    </div>
 <!--banner-->
    @yield('banner')
 <!--//banner-->

@@ -7,9 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
+    'CreateAreaUsuariosTable' => $baseDir . '/database/migrations/2016_12_13_010827_create_area_usuarios_table.php',
     'CreateAreasTable' => $baseDir . '/database/migrations/2016_12_12_203804_create_areas_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePreguntasTable' => $baseDir . '/database/migrations/2016_12_12_213758_create_preguntas_table.php',
+    'CreateResPreTable' => $baseDir . '/database/migrations/2016_12_13_005415_create_Res_Pre_table.php',
     'CreateSocialProvidersTable' => $baseDir . '/database/migrations/2016_12_12_145227_create_social_providers_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

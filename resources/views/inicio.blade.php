@@ -48,10 +48,10 @@
 					@foreach($areas as $a)
 						<div class="col-md-6">
 							<div class="col-md1 simpleCart_shelfItem">
-								<a href="{{ url('/') }}">
+								<a href="{{ url('/areas') }}/{{$a->id}}">
 									<img class="img-responsive" src="{{asset("images/areas/$a->imagen")}}" alt="" />
 								</a>
-								<h3><a href="{{ url('/') }}">{{$a->nombre}}</a></h3>
+								<h3><a href="{{ url('/areas') }}/{{$a->id}}">{{$a->nombre}}</a></h3>
 							</div>
 						</div>
 					@endforeach 

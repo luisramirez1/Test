@@ -342,9 +342,11 @@ class ComposerStaticInitd7bc6a0d2321b83b634bd75c0e649b9a
 
     public static $classMap = array (
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
+        'CreateAreaUsuariosTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_010827_create_area_usuarios_table.php',
         'CreateAreasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_12_203804_create_areas_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePreguntasTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_12_213758_create_preguntas_table.php',
+        'CreateResPreTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_005415_create_Res_Pre_table.php',
         'CreateSocialProvidersTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_12_145227_create_social_providers_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

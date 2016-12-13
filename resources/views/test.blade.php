@@ -6,7 +6,7 @@
 	<div class="container">
 		<div>
 			<div class="radio">
-				<form action="{{url('/guardarCategorias')}}" method="POST" class="jumbotron" enctype="multipart/form-data">
+				<form action="{{url('/enviarTest')}}" method="POST" class="jumbotron" enctype="multipart/form-data">
         			<input type="hidden" name="_token" value="{{csrf_token()}}">
 	        		<div class="table-responsive">
 						<table class="table table-hover">
@@ -24,15 +24,16 @@
 										<td>{{$p->id}}</td>
 										<td>{{$p->pregunta}}</td>
 										<td>
-											<input type="radio" name="{{$p->id}}" id="resp" value="1" style="margin-left: 20px;" aria-label="Luis">
+											<input type="radio" name="{{$p->id}}" id="resp" value="1" style="margin-left: 20px;" required="">
 										</td>
 										<td>
-											<input type="radio" name="{{$p->id}}" id="resp" value="0" style="margin-left: 20px;" aria-label="Na">
+											<input type="radio" name="{{$p->id}}" id="resp" value="0" style="margin-left: 20px;" required="">
 										</td>
 									</tr>
 								@endforeach
 							</tbody>
 						</table>
+						<input type="submit" class="btn btn-info" value="Finalizar Test">
 					</div>
         		</form>
 			</div>
