@@ -3,7 +3,7 @@
 @section('contenido')
 
 <div class="jumbotron" style="width: 90%; margin: 0 auto; border-radius: 5px;">
-	<div class="container">
+	<div class="container" style="font-size: 14.5px;">
 		<div>
 			<div class="radio">
 				<form action="{{url('/enviarTest')}}" method="POST" class="jumbotron" enctype="multipart/form-data">
@@ -32,7 +32,7 @@
 									</tr>
 								@endforeach
 							</tbody>
-						</table>
+						</table> <br>
 						<input type="submit" class="btn btn-info" value="Finalizar Test">
 					</div>
         		</form>

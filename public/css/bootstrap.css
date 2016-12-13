@@ -2444,7 +2444,7 @@ table th[class*="col-"] {
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #ddd;
+    
   }
   .table-responsive > .table {
     margin-bottom: 0;
@@ -2455,7 +2455,7 @@ table th[class*="col-"] {
   .table-responsive > .table > thead > tr > td,
   .table-responsive > .table > tbody > tr > td,
   .table-responsive > .table > tfoot > tr > td {
-    white-space: nowrap;
+    
   }
   .table-responsive > .table-bordered {
     border: 0;
@@ -2642,7 +2642,6 @@ input[type="search"] {
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-  position: absolute;
   margin-top: 4px \9;
   margin-left: -20px;
 }
@@ -4856,7 +4855,7 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding: 30px 15px;
+  padding: 5px 0px;
   margin-bottom: 30px;
   color: inherit;
   background-color: #eee;
@@ -4882,12 +4881,12 @@ a.badge:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding: 48px 0;
+    padding: 15px 0;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
   .jumbotron h1,
   .jumbotron .h1 {

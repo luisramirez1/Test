@@ -204,19 +204,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-sm-3 footer-bottom-cate">
 					<h6>Alumno</h6>
 					<ul>
-						<li><a href="#">Osuna Zazueta Eddie Isac</a></li>											
+						<li><a>Osuna Zazueta Eddie Isac</a></li>											
+						<li><img src="{{asset("images/usuarios/edie.jpg")}}" alt="" style="width: 30%; cursor:pointer; cursor: hand; margin-left: 37px;" class="img-responsive img-circle" onclick="window.open('http://www.facebook.com/eddie.osuna.z','_blank');"></li>											
 					</ul>
 				</div>
 				<div class="col-sm-3 footer-bottom-cate">
 					<h6>Alumno</h6>
 					<ul>
-						<li><a href="#">Ramirez Salazar Luis Fernando</a></li>						
+						<li><a href="#">Ramirez Salazar Luis Fernando</a></li>
+						<li><img src="{{asset("images/usuarios/luis.jpg")}}" alt="" style="width: 30%; cursor:pointer; cursor: hand; margin-left: 45px;" class="img-responsive img-circle" onclick="window.open('http://www.facebook.com/luisramirez.lfrs','_blank');"></li>						
 					</ul>
 				</div>
 				<div class="col-sm-3 footer-bottom-cate cate-bottom">
 					<h6>Alumno</h6>
 					<ul>
-						<li><a href="#">Sandoval Alfaro Oscar Eliut</a></li>						
+						<li><a href="#">Sandoval Alfaro Oscar Eliut</a></li>
+						<li><img src="{{asset("images/usuarios/gato.jpg")}}" alt="" style="width: 30%; cursor:pointer; cursor: hand; margin-left: 40px;" class="img-responsive img-circle" onclick="window.open('http://www.facebook.com/oscar.eliux','_blank');"></li>					
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -227,3 +230,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//footer-->
 </body>
 </html>
+
