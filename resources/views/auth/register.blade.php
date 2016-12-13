@@ -4,7 +4,10 @@
 
 <div class="container">
     <div class="register">
-        <h1>Register</h1>
+        <h1>Registrar</h1>
+            <br>
+            @include('partials.flash')
+
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                 {{ csrf_field() }}
                 <div class="col-md-6  register-top-grid">   

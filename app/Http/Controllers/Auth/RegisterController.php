@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use App\Mail\ConfirmationEmail;
 use App\SocialProvider;
 use Socialite;
 
@@ -114,5 +118,22 @@ class RegisterController extends Controller
             $user = $socialProvider->user;
         auth()->login($user);
         return redirect('/');
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        Mail::to($user->email)->send(new ConfirmationEmail($user));
+
+        return back()->with('status', 'Te enviamos un código de activación. Consulta tu Correo Electrónico.');
+    }
+
+    public function confirmEmail($token)
+    {
+        User::whereToken($token)->firstOrFail()->hasVerified();
+        return redirect('login')->with('status', 'Correo confirmado. Por favor Inicia sesión.');
     }
 }

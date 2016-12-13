@@ -27,6 +27,21 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user) {
+            $user->token = str_random(40);
+        });
+    }
+
+    public function hasVerified()
+    {
+        $this->verified = true;
+        $this->token = null;
+        $this->save();
+    }
+    
     function socialProviders()
     {
         return $this->hasMany(SocialProvider::class);

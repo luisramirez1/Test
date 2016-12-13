@@ -4,6 +4,9 @@
 <div class="account">
     <div class="container">
         <h1>Cuenta</h1>
+        
+            @include('partials.flash')
+
         <div class="account_grid">
                <div class="col-md-6 login-right">
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
