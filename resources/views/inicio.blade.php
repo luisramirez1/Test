@@ -3,7 +3,7 @@
 @section('banner')
 <div class="banner">
 	<div class="col-sm-3 banner-mat">
-		<img class="img-responsive"	src="images/8.png" alt="">
+		<img class="img-responsive"	src="{{asset("images/8.png")}}" alt="">
 	</div>
 	<div class="col-sm-6 matter-banner">
 	 	<div class="slider">
@@ -32,31 +32,33 @@
 		</div>
 	</div>
 	<div class="col-sm-3 banner-mat">
-		<img class="img-responsive" src="images/7.png" alt="">
+		<img class="img-responsive" src="{{asset("images/7.png")}}" alt="">
 	</div>
 	<div class="clearfix"> </div>
 </div>
 @stop
 
 @section('contenido')
+
 <div class="content">
 	<div class="container">
 		<div class="content-top">
 			<h1>Areas</h1>
-			<div class="content-top1">
-				<div class="col-md-3 col-md2">
-					<div class="col-md1 simpleCart_shelfItem">
-						<a href="single.html">
-							<img class="img-responsive" src="{{asset("images/pi.png")}}" alt="" />
-						</a>
-						<h3><a href="single.html">Tops</a></h3>
-					</div>
-				</div>	
-			<div class="clearfix"> </div>
-			</div>
+				<div class="content-top1" >
+					@foreach($areas as $a)
+						<div class="col-md-6">
+							<div class="col-md1 simpleCart_shelfItem">
+								<a href="{{ url('/') }}">
+									<img class="img-responsive" src="{{asset("images/areas/$a->imagen")}}" alt="" />
+								</a>
+								<h3><a href="{{ url('/') }}">{{$a->nombre}}</a></h3>
+							</div>
+						</div>
+					@endforeach 
+				</div> 
 		</div>
 	</div>
-</div>
+</div> <br>
 
 @stop
 

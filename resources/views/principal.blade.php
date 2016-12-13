@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-sm-4 header-left">	
 					@if (Auth::guest())	
 						<p class="log"><a href="{{ url('/login') }}"  >Iniciar</a>
-						<span>or</span><a  href="{{ url('/register') }}"  >Registrar</a></p>
+						<span>-</span><a  href="{{ url('/register') }}"  >Registrar</a></p>
 					@else
 						<p class="log"><a href="{{ url('/logout') }}"
                                	onclick="event.preventDefault();
@@ -87,20 +87,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				      <li><a  href="#">Areas</a>
 				      	<div class="mepanel">
 						<div class="row">
-							<div class="col1">
+							<div class="col8">
 								<div class="h_nav">
 									<h4>Areas</h4>
 									<ul>
-										<li><a href="products.html">Formal Shoes</a></li>
-										<li><a href="products.html">Boots</a></li>
-										<li><a href="products.html">Sports Shoes</a></li>
-										<li><a href="products.html">Casual Shoes</a></li>
-										<li><a href="products.html">Running Shoes</a></li>
-										<li><a href="products.html">Sneakers</a></li>
-										<li><a href="products.html">Loafers</a></li>
-										<li><a href="products.html">Slippers</a></li>
-										<li><a href="products.html">Sandals</a></li>
-										<li><a href="products.html">Flip-flops</a></li>
+										<li><a href="products.html">Arte y Creatividad</a></li>
+										<li><a href="products.html">Ciencias Sociales</a></li>
+										<li><a href="products.html">Económica, Administrativa y Financiera</a></li>
+										<li><a href="products.html">Ciencia y Tecnología</a></li>
+										<li><a href="products.html">"Ciencias Ecológicas, Biológicas y de Salud"</a></li>
 									</ul>	
 								</div>							
 							</div>

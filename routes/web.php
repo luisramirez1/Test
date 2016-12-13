@@ -10,9 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Areas;
 
 Route::get('/', function () {
-    return view('inicio');
+
+	$areas = Areas::all();
+
+    return view('inicio', compact('areas'));
 });
 
 Auth::routes();
