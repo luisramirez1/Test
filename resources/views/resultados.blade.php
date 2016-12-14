@@ -5,7 +5,7 @@
 <div class="content">
 	<div class="container">
 		<div class="content-top">
-			<h1>Tus 3 Mejores Areas</h1>
+			<h1>Tus 3 Mejores Areas  <a href="{{url('/generarPDF')}}/{{Auth::user()->id}}/{{$canti}}" style="margin-left: 15px; color: #D60A0A;"><span class="glyphicon glyphicon-download-alt">PDF</span></a></h1>
 				<div class="content-top1" >
 					@foreach($areas as $a)
 						<div class="col-md-6">

@@ -10,6 +10,8 @@ use App\Areas;
 use App\Res_Pre;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Input;
+
 
 class TestController extends Controller
 {
@@ -109,13 +111,74 @@ class TestController extends Controller
             ->orderBy('calificacion', 'desc')
             ->limit(3)
             ->get();
-        return view('/resultados', compact('areas'));
+        $canti = $idP;
+        return view('/resultados', compact('areas', 'canti'));
     }
 
     public function areas($id)
     {
         $area = Areas::find($id);
         return view('/areas', compact('area'));
+    }
+
+    public function editar($id)
+    {
+        $usuarios = Usuarios::find($id);
+        
+        return view('/editar', compact('usuarios'));
+    }
+
+    public function actualizar($id, Request $datos){
+        $nuevo = usuarios::find($id);
+        //$tipo = Poke_Tipo::find($id);  
+        $file = Input::file('imagen');
+        $nombre = $file->getClientOriginalName();
+        $tipos = $datos->input("tipo");
+        $file->move('images/usuarios', $nombre);
+        $nuevo->name=$datos->input('name');
+        $nuevo->email=$datos->input('email');
+        $nuevo->tel=$datos->input('tel');
+        $contraseña = bcrypt($datos['password']);
+        $nuevo->password= $contraseña;
+        $nuevo->imagen=$nombre;
+        $nuevo->save();
+
+        return Redirect('/');
+    }
+
+    public function consultarU() {
+        $usuarios =DB::table('users')
+           ->where('tipoUsuario', '=', 2)
+           ->get();
+       
+      return view('/consultaUsuarios', compact('usuarios'));
+    }
+
+    public function vistaRapida($id) {
+        $usuarios =Usuarios::find($id);
+        $usuario = Auth::user()->id;
+        $areas=DB::table('areas AS a')
+            ->join('areas_usuarios AS au', 'a.id', '=', 'a.id')
+            ->where('au.id_usuario', '=', $id)
+            ->orderBy('au.calificacion', 'desc')
+            ->limit(3)
+            ->get();
+
+      return view('/vistaRapida', compact('areas', 'usuarios'));
+    }
+
+    public function generarPDF($idU, $idP){
+        $areas=DB::table('areas AS a')
+            ->join('areas_usuarios AS au', 'a.id', '=', 'au.id')
+            ->where('au.id_usuario', '=', $idU)
+            ->orderBy('au.calificacion', 'desc')
+            ->limit(3)
+            ->get();
+        $canti = $idP;
+        $vista=view('generarPDF', compact('areas', 'canti'));
+        $dompdf=\App::make('dompdf.wrapper');
+        $dompdf->loadHTML($vista);
+        return $dompdf->stream("TestVocacional.pdf");
     }
 }
 

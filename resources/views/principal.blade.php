@@ -7,7 +7,8 @@
 <script src="{{asset("js/jquery.min.js")}}"></script>
 <!-- Custom Theme files -->
 <!--theme-style-->
-<link href="{{asset("css/style.css")}}" rel="stylesheet" type="text/css" media="all" />	
+<link href="{{asset("css/style.css")}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{asset("css/estilos.css")}}" rel="stylesheet" type="text/css" media="all" />
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -67,9 +68,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						@if (Auth::guest())
 							<p><a class="simpleCart_empty" style="text-decoration: none;">Sesion No Iniciada</a></p>
 						@else
+							@if(Auth::user()->imagen == null)
+            					<a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen" src="{{asset("images/usuarios/user.png")}}" class="" alt=""></a> 
+            				@else
+              					<a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
+            				@endif
 							<p><a class="simpleCart_empty" style="text-decoration: none; font-size: 13px;">{{Auth::user()->name}}</a></p>
           				@endif
-
 					</div>
 					<div class="clearfix"> </div>
 			</div>
@@ -130,6 +135,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  </div>
 						</div>
 					</li>
+					@if(Auth::user()->tipoUsuario == 1)
+						<li><a href="{{ url('/consultaUsuarios') }}">Consultar Usuarios</a></li>
+					@endif
+
 				@endif			
 			  </ul>
 			</div>
@@ -228,6 +237,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--//footer-->
+ 	 @if (Auth::guest())
+  @else
+  <div class="modal fade md" id="myModal89" tabindex="-1" role="dialog" aria-labelledby="myModal89"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;</button>
+          <h3 class="modal-title" id="nombrem">
+            <b>{{ Auth::user()->name }}</b> <br>
+          </h3>
+        </div>
+        <div class="modal-body modal-body-sub">
+          <div class="row">
+            <div class="col-md-12 modal_body_left modal_body_left1">
+              <div class="sap_tabs">  
+                <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+                  <div class="col-md-6">
+                    <ul>
+                      <b>Tipo de Usuario:</b>   @if(Auth::user()->tipoUsuario==1)
+                                  Administrador
+                                @endif
+                                @if(Auth::user()->tipoUsuario==2)
+                                  Invitado
+                                @endif<br>
+                      <b>Correo:</b> {{Auth::user()->email}} <br>
+                      <b>Celular:</b> {{Auth::user()->tel}}<br>
+                    </ul>
+                    <a href="{{url('/editar')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Editar</a>
+                    @if(Auth::user()->tipoUsuario==2)
+                    <a href="{{url('/eliminarUsuariosI')}}/{{Auth::user()->id}}" class="btn btn-info btn-sm" id="editar">Eliminar Cuenta</a>
+                    @endif
+                  </div>
+                  <div>
+                    @if(Auth::user()->imagen == null)
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios/user.png")}}" alt=""></a> 
+                    @else
+                      <a href="#" data-toggle="modal" data-target="#myModal89"><img id="imagen2" src="{{asset("images/usuarios")}}/{{Auth::user()->imagen}}" alt=""></a> 
+                    @endif
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  @endif
+
+    <script src="{{asset("js/bootstrap.js")}}"></script>
 </body>
 </html>
 
