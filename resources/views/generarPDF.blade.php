@@ -188,7 +188,7 @@ footer {
             <td class="desc"><img id="img" src="{{asset("images/areas")}}/{{$a->imagen}}" alt=""></td>
             <td class="unit">{{$a->calificacion}}%</td>
             <td class="qty">{{$a->laboral}}</td>
-            <td class="total">${{$a->escuelas}}</td>
+            <td class="total">{{$a->escuelas}}</td>
           </tr>
         @endforeach
         </tbody>
