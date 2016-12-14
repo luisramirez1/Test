@@ -2,6 +2,8 @@
 
 @section('contenido')
 
+@include('partials.exito')
+
 <div class="content">
 	<div class="container">
 		<div class="content-top">

@@ -40,6 +40,5 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/actualizar/{id}', 'TestController@actualizar');
 	Route::get('/vistaRapida/{id}', 'TestController@vistaRapida');
   	Route::get('/generarPDF/{idU}/{idP}', 'TestController@generarPDF');
-
-
+  	Route::get('/eliminarUsuariosI/{id}', 'TestController@eliminarUI');
 });

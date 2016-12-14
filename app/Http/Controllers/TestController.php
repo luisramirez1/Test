@@ -11,6 +11,8 @@ use App\Res_Pre;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestCorreo;
 
 
 class TestController extends Controller
@@ -99,7 +101,8 @@ class TestController extends Controller
         $nuevo5->calificacion = $a5 * 6.25;
         $nuevo5->npregunta = $pre;
         $nuevo5->save();
-    	return Redirect('/resultados/' . $id . '/' . $pre);
+        Mail::to(Auth::user()->email)->send(new TestCorreo(Auth::user()));
+    	return Redirect('/resultados/' . $id . '/' . $pre)->with('status', ' Test realizado correctamente. Tus resultados tambien fueron enviados a tu correo. ¡GRACIAS!');
     }
 
     public function resultados($idU, $idP)
@@ -146,6 +149,12 @@ class TestController extends Controller
         return Redirect('/');
     }
 
+    public function eliminarUI($id) {
+        Usuarios::find($id)->delete();
+        return Redirect('/')->with('status', ' Cuenta eliminada de forma permanente. ¡Hasta Luego!');
+
+    }
+
     public function consultarU() {
         $usuarios =DB::table('users')
            ->where('tipoUsuario', '=', 2)
@@ -156,11 +165,10 @@ class TestController extends Controller
 
     public function vistaRapida($id) {
         $usuarios =Usuarios::find($id);
-        $usuario = Auth::user()->id;
         $areas=DB::table('areas AS a')
-            ->join('areas_usuarios AS au', 'a.id', '=', 'a.id')
+            ->join('areas_usuarios AS au', 'a.id', '=', 'au.id')
             ->where('au.id_usuario', '=', $id)
-            ->orderBy('au.calificacion', 'desc')
+            ->orderBy('calificacion', 'desc')
             ->limit(3)
             ->get();
 

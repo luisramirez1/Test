@@ -1,6 +1,8 @@
 @extends('principal')
 
 @section('banner')
+@include('partials.exito')
+
 <div class="banner">
 	<div class="col-sm-3 banner-mat">
 		<img class="img-responsive"	src="{{asset("images/8.png")}}" alt="">
