@@ -179,6 +179,7 @@ class TestController extends Controller
         $areas=DB::table('areas AS a')
             ->join('areas_usuarios AS au', 'a.id', '=', 'au.id')
             ->where('au.id_usuario', '=', $idU)
+            ->where('au.npregunta', '=', $idP)
             ->orderBy('au.calificacion', 'desc')
             ->limit(3)
             ->get();
